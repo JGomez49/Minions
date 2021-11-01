@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Imagen</title>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <%- include ("partials/navigation") %> 
+    <div class="container p-4">
+        <div class="row">
+            <div class="col md-3 offset-md-3">
+
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                                <!-- El name del input debe ser "image", ya que asi fue declarado 
+                                en src/index.js en 
+                                app.use(multer({dest: path.join(__dirname, 'public/img/uploads')}).single('image'));-->
+                            <div class="input-group mb-3">
+                                    <input type="file" name="image" class="form-control" id="inputGroupFile02">
+                                    <!-- <label class="input-group-text" for="inputGroupFile02">Seleccione...</label> -->
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <input type="text" name="title" placeholder="Nombre del Plato" class="form-control mb-3">
+                            </div>
+
+                            <!-- <div class="form-group mb-3">
+                                <textarea name="description" class="form-control" placeholder="Descripcion"></textarea>
+                            </div> -->
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" name="precio" placeholder="Precio" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-text">.00</span>
+                            </div>
+
+                            <select class="form-select mb-3" name="description" aria-label="Default select example">
+                                    <option selected>Seleccione la Categoria</option>
+                                    <option value="Almuerzos">Almuerzos</option>
+                                    <option value="Rapidas">Comidas Rapidas</option>
+                                    <option value="Heladeria">Heladeria</option>
+                            </select>
+
+
+                            <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" name="veces" type="checkbox" id="inlineCheckbox1" value=0 checked>
+                                <label class="form-check-label" for="inlineCheckbox1">Adicionar</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" name="adicionar" type="checkbox" id="inlineCheckbox2" value="OFF" checked>
+                                <label class="form-check-label" for="inlineCheckbox2">Portada</label>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="submit">Subir Imagen</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<%- include ("partials/footer") %>
+</html>

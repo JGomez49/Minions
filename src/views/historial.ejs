@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial</title>
+    <%- include ("partials/head") %>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="darkly.css">
+</head>
+<body>
+
+    <%- include ("partials/sidenav") %>
+
+    <div class="main">
+
+        <%- include ("partials/navigation") %>
+
+        <div class="d-grid gap-2 mb-3">
+            <button class="btn btn-secondary" type="button" id="btnExport">Exportar</button>
+        </div>
+
+        <table class="table table-dark table-striped" id="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% index=1 %> 
+                <% registros.forEach(registro => { %>
+                    <tr>
+                        <th scope="row"><%= index %> </th>
+                        <td><%= registro.fecha %></td>
+                        <td><%= registro.hora %></td>
+                        <td><%= registro.valor %></td>
+                        <td><a href="/registro/<%= registro._id %>/delete" type="button" class="btn btn-danger btn-sm">Borrar</a></td>
+                    </tr>
+                    <% index = index + 1 %> 
+                <% }) %>
+            </tbody>
+        </table>
+
+    </div>
+    
+    
+</body>
+<%- include ("partials/footer") %>
+</html>
+

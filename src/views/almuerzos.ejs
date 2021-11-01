@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <%- include("partials/head.ejs") %> 
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/darkly.css">
+</head>
+
+<body>
+    <%- include ("partials/sidenav") %>
+    <div class="main p-4"> 
+        <%- include ("partials/navigation") %> 
+
+        <h1>Almuerzos</h1>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                <% images.forEach(function (image) { %>
+  
+                    <% if (image.description == 'Almuerzos') { %> 
+
+                        <div class="card border-primary mb-3 animate__animated animate__rubberBand" style="max-width: 12rem;">
+                            <div class="card-header"><%= image.title %>
+                                <div><a href="/image/<%= image._id %>/delete">Eliminar</a></div>
+                            </div>
+                            <img src="<%= image.path %>" class="img-fluid rounded-start" alt="..." style="width: 10rem; height: 10rem;">
+                            <div class="card-body text-primary">
+                                <p class="card-text"><small class="text-muted">$<%= image.precio %></small></p>
+                                <a href="/image/<%= image._id %>/add" class="btn btn-success d-md-block mb-3">Adicionar</a>
+                            </div>
+                        </div>
+
+                    <% } %>
+
+                <% }) %>
+        </div>
+    </div>
+
+</body>
+
+<%- include ("partials/footer") %>
+
+</html>
