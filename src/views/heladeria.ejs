@@ -25,15 +25,13 @@
 
                     <% if (image.description == 'Heladeria') { %>    
 
-                        <div class="card border-primary mb-3 animate__animated animate__rubberBand" style="max-width: 12rem;">
+                        <div class="card border-primary animate__animated animate__rubberBand" style="max-width: 11rem;">
                             <div class="card-header"><%= image.title %>
                                 <div><a href="/image/<%= image._id %>/delete">Eliminar</a></div>
                             </div>
-                            <img src="<%= image.path %>" class="img-fluid rounded-start" alt="..." style="width: 10rem; height: 10rem;">
-                            <div class="card-body text-primary">
-                                <p class="card-text"><small class="text-muted">$<%= image.precio %></small></p>
-                                <a href="/image/<%= image._id %>/add" class="btn btn-success d-md-block mb-3">Adicionar</a>
-                            </div>
+                            <img src="<%= image.path %>" class="img-fluid rounded-start" alt="..." style="width: 11rem; height: 8rem;">
+                            <h6>$<%= image.precio %></h6>
+                            <a href="/image/<%= image._id %>/add" class="btn btn-success d-md-block mb-1 mt-auto">Adicionar</a>
                         </div>
 
                     <% } %>
