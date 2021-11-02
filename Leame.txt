@@ -15,4 +15,8 @@ git remote add origin https://github.com/JGomez49/Minions.git
 git branch -M main
 git push -u origin main
 
+git add .
+git commit -m "commit"
+git push -u origin main
+
 MONGODB_URI = mongodb+srv://USER:NuDmqT4Wl3JJKzen@cluster0.g7lcu.mongodb.net/DB?retryWrites=true&w=majority

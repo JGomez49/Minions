@@ -1,6 +1,8 @@
 const {Router} = require('express');
 const router = Router();
 
+const moment = require('moment');
+
 const path = require('path');
 //Se debe importar este path para poder trabajar con rutas del sistema
 //y se usa con unlink en este modulo.
@@ -79,11 +81,12 @@ router.post('/upload', async(req,res)=>{
 router.post('/historial', async(req,res)=>{
     const registro = new Registro();
     registro.valor = req.body.valor;
-        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        let today  = new Date();
-    registro.fecha = today.toLocaleDateString("en-US");
-        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    registro.hora = time;
+    //     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    //     let today  = new Date();
+    // registro.fecha = today.toLocaleDateString("en-US");
+    registro.fecha = moment().format('LL'); 
+        // let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    registro.hora = moment().format('LTS');
     await registro.save();
     res.redirect('/clear');
 });
